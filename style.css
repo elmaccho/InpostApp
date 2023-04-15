@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 * {
   margin: 0;
 }
 
 body {
   overflow: hidden;
+  font-family: "Kanit", sans-serif;
 }
 
 header {
@@ -135,6 +137,7 @@ main .receiveContainer .addReceiveBtn {
   border: none;
   cursor: pointer;
   transition: 0.3s;
+  z-index: 1;
 }
 main .receiveContainer .addReceiveBtn i {
   font-size: 15px;
@@ -142,8 +145,11 @@ main .receiveContainer .addReceiveBtn i {
 main .receiveContainer .addReceiveBtn:focus {
   background-color: rgb(199, 169, 20);
 }
-main .receiveContainer .infoBox {
-  width: 70vw;
+main .menuToggle {
+  transform: translateX(0%);
+}
+main .infoBox {
+  width: 350px;
   height: 130px;
   position: absolute;
   bottom: 70px;
@@ -153,28 +159,25 @@ main .receiveContainer .infoBox {
   padding: 10px 15px;
   box-sizing: border-box;
 }
-main .receiveContainer .infoBox h1 {
-  font-size: 5vw;
+main .infoBox h1 {
+  font-size: 25px;
 }
-main .receiveContainer .infoBox span {
+main .infoBox span {
   color: grey;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   position: absolute;
   bottom: 8px;
-  font-size: 4vw;
+  font-size: 14px;
 }
-main .receiveContainer .infoBox span i {
+main .infoBox span i {
   margin: 0 5px;
   padding: 2.5px 3px;
   border: 2px solid grey;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-main .menuToggle {
-  transform: translateX(0%);
 }
 
 footer {

@@ -1,10 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
 *{
     margin:0;
   }
   
   body{
     overflow: hidden;
+    font-family: 'Kanit', sans-serif;
   }
   
 header{
@@ -177,6 +180,7 @@ main{
             cursor: pointer;
       
             transition: 0.3s;
+            z-index: 1;
       
             i{
               font-size: 15px;
@@ -187,49 +191,51 @@ main{
           background-color: rgb(199, 169, 20);
         }
       
-        .infoBox{
-          width: 70vw;
-          height: 130px;
-      
-      
-          position: absolute;
-          bottom:70px;
-          left: 15px;
-      
-      
-          background-color: white;
-          box-shadow: rgba(149, 157, 165, 0.047) 0px 0px 40px;
-          padding: 10px 15px;
-          box-sizing: border-box;
-      
-          h1{
-            font-size: 5vw;
-          }
-      
-          span{
-            color:grey;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            position: absolute;
-            bottom:8px;
-            font-size: 4vw;
-      
-            i{
-              margin: 0 5px;
-              padding: 2.5px 3px;
-              border: 2px solid grey;
-      
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-          }
-        }
       }
       
-      .menuToggle{
+    .menuToggle{
         transform: translateX(0%);
+      }
+
+    .infoBox{
+        width: 350px;
+        height: 130px;
+    
+    
+        position: absolute;
+        bottom:70px;
+        left: 15px;
+    
+    
+        background-color: white;
+        box-shadow: rgba(149, 157, 165, 0.047) 0px 0px 40px;
+        padding: 10px 15px;
+        box-sizing: border-box;
+    
+        h1{
+          font-size: 25px;
+        }
+    
+        span{
+          color:grey;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          position: absolute;
+          bottom:8px;
+          font-size: 14px;
+          
+    
+          i{
+            margin: 0 5px;
+            padding: 2.5px 3px;
+            border: 2px solid grey;
+    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
       }
             
 }
