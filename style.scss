@@ -1,0 +1,429 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    margin:0;
+  }
+  
+  body{
+    overflow: hidden;
+  }
+  
+header{
+    width: 100%;
+    height: 10.5vh;
+    display: flex;
+
+    .mainBar{
+        font-family: 'Kanit', sans-serif;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        box-sizing: border-box;
+    
+        padding: 10px;
+    
+        position: fixed;
+        top:0;
+        width: 100%;
+        background-color: white;
+    
+        .menuBtn{
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+    
+          font-size: 15px;
+        }
+    
+        .mainTitle{
+          font-size: 15px;
+        }
+    
+        .searchBtn{
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+    
+          font-size: 15px;
+        }
+    
+    }
+    
+        .switchBar{
+        display: flex;
+        justify-content: space-around;
+        box-sizing: border-box;
+    
+        padding: 10px;
+        padding-bottom: 0;
+    
+        position: fixed;
+        top:40px;
+        width: 100%;
+        z-index: 1;
+        background-color: white;
+    
+    
+    
+    
+        button{
+          border:none;
+          background-color: transparent;
+          cursor: pointer;
+          font-weight: 600;
+          padding: 5px 15px;
+    
+        }
+    
+        button:nth-child(1){
+          border-bottom: 4px solid rgb(255, 217, 25);
+        }
+    }
+}
+
+main{
+    background-color: rgb(241, 241, 241);
+    overflow-x: hidden;
+    height: 82.5vh;
+
+    .receiveContainer{
+        font-family: 'Kanit', sans-serif;
+      
+      
+        .packageBox{
+          width: 100%;
+          height: 160px;
+          margin: 10px 0;
+          padding: 10px 15px;
+          box-sizing: border-box;
+          position: relative;
+      
+      
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          background-color: white;
+          transition: 0.3s;
+          cursor: pointer;
+      
+          font-family: 'Kanit', sans-serif;
+      
+          .packageInfo{
+            display: flex;
+            flex-direction: column;
+      
+            gap: 10px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            pointer-events: none;
+      
+            .trackingNumber{
+              span{
+                font-size: 13px;
+              }
+            }
+      
+            p{
+              font-size: 11px;
+              text-transform: uppercase;
+              color:Grey;
+      
+            }
+          }
+      
+          .moreBtn{
+            position: absolute;
+            right: 10px;
+            bottom:10px;
+      
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            pointer-events: none;
+      
+            font-weight: 500;
+            font-size: 12px;
+      
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+      
+            i{
+              color: rgb(255, 217, 25);
+              font-size: 15px;
+              pointer-events: none;
+            }
+      
+            p{
+              pointer-events: none;
+            }
+          }
+      
+        }
+      
+        .packageBox:active{
+          background-color: rgb(160, 160, 160);
+        }
+      
+        .addReceiveBtn{
+            width: 40px;
+            height: 40px;
+      
+            position: fixed;
+            bottom: 75px;
+            right: 25px;
+      
+            background-color: rgb(255, 217, 25);
+            border: none;
+            cursor: pointer;
+      
+            transition: 0.3s;
+      
+            i{
+              font-size: 15px;
+            }
+        }
+      
+        .addReceiveBtn:focus{
+          background-color: rgb(199, 169, 20);
+        }
+      
+        .infoBox{
+          width: 70vw;
+          height: 130px;
+      
+      
+          position: absolute;
+          bottom:70px;
+          left: 15px;
+      
+      
+          background-color: white;
+          box-shadow: rgba(149, 157, 165, 0.047) 0px 0px 40px;
+          padding: 10px 15px;
+          box-sizing: border-box;
+      
+          h1{
+            font-size: 5vw;
+          }
+      
+          span{
+            color:grey;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: absolute;
+            bottom:8px;
+            font-size: 4vw;
+      
+            i{
+              margin: 0 5px;
+              padding: 2.5px 3px;
+              border: 2px solid grey;
+      
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+      
+      .menuToggle{
+        transform: translateX(0%);
+      }
+            
+}
+
+footer{
+    width: 100%;
+
+    position: fixed;
+    bottom:0;
+    // display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: white;
+  
+    z-index: 1;
+
+    div{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        height: 7vh;
+      
+        button{
+          border:none;
+          background-color: transparent;
+          cursor: pointer;
+      
+          font-weight: 600;
+          font-size: 10px;
+      
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      
+          span{
+            position: relative;
+          top: 3px;
+          }
+      
+          i{
+            font-size: 17px;
+          }
+      
+          .fa-arrow-right{
+            transform: rotateZ(-45deg);
+          }
+          .fa-arrow-left{
+            transform: rotateZ(-45deg);
+          }
+        }
+      
+      
+      .slider{
+        width: 100%;
+        height: 80px;
+        background-color:rgb(255, 217, 25);
+      
+      
+        background-size:cover;
+        background-position:50%;
+      }
+      
+      }
+      
+
+}
+
+
+#windows{
+    position: absolute;
+    top:0;
+    width: 100%;
+    min-height: 100vh;
+
+
+    .add-package-page{
+        z-index: 9;
+        transition: 0.3s;
+        transform: translateX(100%);
+        position: relative;
+    
+        .header{
+            height: 7vh;
+            width: 100%;
+          
+            background-color: rgb(255, 255, 255);
+            font-family: 'Kanit', sans-serif;
+            border-bottom: 1px solid rgba(207, 205, 205, 0.479);
+            color: #232323;
+          
+            display: flex;
+            align-items: center;
+          
+
+            z-index: 3;
+
+            gap: 20px;
+            padding-left: 10px;
+    
+            button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            
+                border:none;
+                background-color: transparent;
+                font-size: 23px;
+                cursor: pointer;
+                border-radius: 50%;
+                padding: 4px 6px;
+                color: #232323;
+            
+            
+                transition: 0.3s;
+            
+                i{
+                  position: relative;
+                  top: 1px;
+                }
+              }
+              button:focus{
+                background-color: rgba(128, 128, 128, 0.605);
+              }
+            
+            
+              h1{
+                font-size: 15px;
+              }
+            
+        }
+    
+        .main{
+                height: 93vh;
+                width: 100%;
+                padding: 15px;
+                box-sizing: border-box;
+                font-family: 'Kanit', sans-serif;
+                gap: 15px;
+              
+                background-color: white;
+              
+              
+                display: flex;
+                flex-direction: column;
+
+                z-index: 5;
+
+              
+                input{
+                  height: 40px;
+                  border: 2px solid rgba(207, 205, 205, 0.479);
+                  font-weight: 600;
+                  text-indent: 10px;
+                  outline: none;
+                }
+              
+                input::placeholder{
+                  color: rgb(169, 169, 169);
+                }
+              
+                .counter-number, .counter-name{
+                  position: relative;
+                  top: -15px;
+                  left: 15px;
+                  font-size: 13px;
+                  color: rgb(169, 169, 169);
+                }
+              
+                h1{
+                  font-size: 16px;
+              
+                }
+              
+                button{
+                  border:none;
+                  height: 45px;
+                  font-weight: 600;
+                  color: #232323;
+                  cursor: pointer;
+                  background-color:rgb(255, 217, 25);
+                  font-weight: 600;
+                }
+                button:disabled{
+                  background-color: rgba(99, 99, 99, 0.141);
+                  color:rgba(128, 128, 128, 0.605);
+                  cursor:default;
+                }
+        }
+    }
+    .menuToggle{
+        transform: translateX(0%);
+    }
+   
+}
