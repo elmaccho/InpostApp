@@ -149,7 +149,8 @@ main .menuToggle {
   transform: translateX(0%);
 }
 main .infoBox {
-  width: 350px;
+  width: 70%;
+  max-width: 300px;
   height: 130px;
   position: absolute;
   bottom: 70px;
@@ -160,7 +161,7 @@ main .infoBox {
   box-sizing: border-box;
 }
 main .infoBox h1 {
-  font-size: 25px;
+  font-size: 4.5vw;
 }
 main .infoBox span {
   color: grey;
@@ -169,7 +170,7 @@ main .infoBox span {
   align-items: center;
   position: absolute;
   bottom: 8px;
-  font-size: 14px;
+  font-size: 3.5vw;
 }
 main .infoBox span i {
   margin: 0 5px;
