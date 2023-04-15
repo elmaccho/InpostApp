@@ -1,11 +1,22 @@
 const addReceiveBtn = document.querySelector('.addReceiveBtn')
 const addPackagePage = document.querySelector('.add-package-page')
 const closeReceiveMenu = document.querySelector('.closeReceiveMenu')
+const packageBoxes = document.querySelectorAll('.packageBox')
 
 const packageNumber = document.querySelector('.packageNumber')
 const packageName = document.querySelector('.packageName')
 const counters = document.querySelectorAll('.counter')
 const addOrderBtn = document.getElementById('addOrderBtn')
+
+const packageInfo = document.querySelector('.packageInfo')
+const packageInfoBox = document.querySelector('.packageBox .packageInfo')
+const closeInfoPage = document.querySelector('.closeInfoPage')
+
+const trackingNumberInfo = document.querySelector('.trackingNumberInfo')
+const statusInfo = document.querySelector('.statusInfo')
+const senderInfo = document.querySelector('.senderInfo')
+const nameInfo = document.querySelector('.nameInfo')
+
 
 
 
@@ -46,8 +57,33 @@ const packageNumberFocusOut = () =>{
     packageNumberValidation()
 }
 
+for(let packageBox of packageBoxes){
+    packageBox.addEventListener('click', e => {
+        packageInfo.classList.toggle('packageInfoToggle')
+
+        const closestTrackingNumber = e.target.closest('.packageBox').querySelector('.trackingNumberBox').innerText
+        const closestStatus = e.target.closest('.packageBox').querySelector('.statusBox').innerText
+        const closestSender = e.target.closest('.packageBox').querySelector('.senderBox').innerText
+
+
+        trackingNumberInfo.textContent = closestTrackingNumber
+        statusInfo.textContent = closestStatus
+        senderInfo.textContent = closestSender
+    })
+}
+
+const TogglecloseInfoPage = () => {
+    packageInfo.classList.toggle('packageInfoToggle')
+}
+
+
+
 addReceiveBtn.addEventListener('click', toggleAddMenu)
 closeReceiveMenu.addEventListener('click', toggleAddMenu)
+
+closeInfoPage.addEventListener('click', TogglecloseInfoPage)
+
+
 packageNumber.addEventListener('input', packageNumberCounter)
 packageNumber.addEventListener('focus', packageNumberFocus)
 packageNumber.addEventListener('focusout', packageNumberFocusOut)

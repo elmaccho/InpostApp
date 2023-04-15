@@ -9,17 +9,48 @@
     <script src="https://kit.fontawesome.com/4798a03daf.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <?php
-        $conn = new mysqli("localhost","root","","inpostapp");
-    ?>
 
     <div id="windows">
-        <div class="add-package-page">
-            <div class="header">
+
+      <div class="packageInfo">
+        <div class="header">
+          <button class="closeInfoPage"><i class="fa-solid fa-arrow-left"></i></button> <h1>Informacje o przesyłce</h1>
+        </div>
+        <div class="main">
+
+          <p class="infoTitle">
+            nr przesyłki
+          </p>
+          <span class="trackingNumberInfo">
+          </span>
+
+          <p class="infoTitle">
+            status
+          </p>
+          <span class="statusInfo">
+          </span>
+
+          <p class="infoTitle">
+            nadawca
+          </p>
+          <span class="senderInfo">
+          </span>
+
+          <p class="infoTitle">
+            nazwa przesyłki
+          </p>
+          <span class="nameInfo">
+          </span>
+
+        </div>
+      </div>  
+
+      <div class="add-package-page">
+          <div class="header">
                 <button class="closeReceiveMenu"><i class="fa-solid fa-arrow-left"></i></button> <h1>Dodaj przesyłkę</h1>
-            </div>
+          </div>
     
-            <div class="main">
+          <div class="main">
                 <h1>Podaj numer przesyłki, którą chcesz śledzić</h1>
                 <input
                     type="number"
@@ -45,8 +76,9 @@
                     id="addOrderBtn" 
                     disabled = "true"
                 >Dodaj</button>
-            </div>
-        </div>
+          </div>
+      </div>
+
     </div>
     
     <header>
@@ -89,37 +121,62 @@
             </button>
         </div>
 
-        <div class="packageBox" (click)="openBoxInfo($event)">
-            <div class="packageInfo">
-                <div class="trackingNumber">
+     <?php
+        $conn = mysqli_connect("localhost","root","","inpostapp");
+
+        $sql = "SELECT * FROM zamowienie";
+        $query = mysqli_query($conn, $sql);
+
+
+        while($row = $query->fetch_assoc()){
+          
+          if ($row) {
+            $trackingNumber = $row["nrPrzesylki"];
+            $status = $row["status"];
+            $sender = $row["nadawca"];
+
+            echo "
+            <div class=\"packageBox\">
+            <div class=\"packageInfo\">
+                <div class=\"trackingNumber\">
                   <p>nr przesyłki</p>
-                  <span>
-                    {{orderlist.tracking_number}}
+                  <span class=\"trackingNumberBox\">
+                    $trackingNumber
                   </span>
                 </div>
 
-                <div class="status">
+                <div class=\"status\">
                   <p>status</p>
-                  <span>{{orderlist.status}}</span>
+                  <span class=\"statusBox\">$status</span>
                 </div>
 
-                <div class="sender">
+                <div class=\"sender\">
                   <p>nadawca</p>
-                  <span>{{orderlist.sender}}</span>
+                  <span class=\"senderBox\">$sender</span>
                 </div>
             </div>
 
-          <div class="moreBtn">
-            <p>więcej</p> <i class="fa-solid fa-arrow-right"></i>
+          <div class=\"moreBtn\">
+            <p>więcej</p> <i class=\"fa-solid fa-arrow-right\"></i>
           </div>
 
         </div>
+            ";
+          } else {
+             echo "
+             <div class=\"infoBox\">
+             <h1>Nie śledzisz jeszcze żadnej przesyłki</h1>
+       
+             <span>Kliknij <i class=\"fa-solid fa-plus\"></i> by dodać przesyłkę</span>
+     </div>";
+          }
 
-        <div class="infoBox">
-                <h1>Nie śledzisz jeszcze żadnej przesyłki</h1>
-          
-                <span>Kliknij <i class="fa-solid fa-plus"></i> by dodać przesyłkę</span>
-        </div>
+
+        }
+
+        
+        mysqli_close($conn);
+     ?>
     </main>
 
     <footer>
@@ -133,7 +190,7 @@
               <i class="fa-solid fa-arrow-right"></i>
             <span>Nadaj</span>
             </button>
-
+          
             <button>
               <i class="fa-solid fa-arrow-left"></i>
             <span>Zwróć</span>
@@ -148,9 +205,6 @@
           
     </footer>
       
-    <?php 
-        $conn -> close();
-    ?>
     <script src="./script.js"></script>
 </body>
 </html>

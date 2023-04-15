@@ -92,6 +92,77 @@ main{
     .receiveContainer{
         font-family: 'Kanit', sans-serif;
       
+        .addReceiveBtn{
+            width: 40px;
+            height: 40px;
+      
+            position: fixed;
+            bottom: 75px;
+            right: 25px;
+      
+            background-color: rgb(255, 217, 25);
+            border: none;
+            cursor: pointer;
+      
+            transition: 0.3s;
+            z-index: 1;
+      
+            i{
+              font-size: 15px;
+            }
+        }
+      
+        .addReceiveBtn:focus{
+          background-color: rgb(199, 169, 20);
+        }
+      
+      }
+      
+    .menuToggle{
+        transform: translateX(0%);
+      }
+
+    .infoBox{
+        width: 70%;
+        max-width: 300px;
+        height: 130px;
+    
+    
+        position: absolute;
+        bottom:70px;
+        left: 15px;
+    
+    
+        background-color: white;
+        box-shadow: rgba(149, 157, 165, 0.047) 0px 0px 40px;
+        padding: 10px 15px;
+        box-sizing: border-box;
+    
+        h1{
+          font-size:4.5vw;
+        }
+    
+        span{
+          color:grey;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          position: absolute;
+          bottom:8px;
+          font-size: 3.5vw;
+          
+    
+          i{
+            margin: 0 5px;
+            padding: 2.5px 3px;
+            border: 2px solid grey;
+    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }      
       
         .packageBox{
           width: 100%;
@@ -180,7 +251,6 @@ main{
             cursor: pointer;
       
             transition: 0.3s;
-            z-index: 1;
       
             i{
               font-size: 15px;
@@ -191,55 +261,47 @@ main{
           background-color: rgb(199, 169, 20);
         }
       
-      }
+        .infoBox{
+          width: 70vw;
+          height: 130px;
       
-    .menuToggle{
-        transform: translateX(0%);
-      }
-
-    .infoBox{
-        width: 70%;
-        max-width: 300px;
-        height: 130px;
-    
-    
-        position: absolute;
-        bottom:70px;
-        left: 15px;
-    
-    
-        background-color: white;
-        box-shadow: rgba(149, 157, 165, 0.047) 0px 0px 40px;
-        padding: 10px 15px;
-        box-sizing: border-box;
-    
-        h1{
-          font-size:4.5vw;
-        }
-    
-        span{
-          color:grey;
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
+      
           position: absolute;
-          bottom:8px;
-          font-size: 3.5vw;
-          
-    
-          i{
-            margin: 0 5px;
-            padding: 2.5px 3px;
-            border: 2px solid grey;
-    
+          bottom:70px;
+          left: 15px;
+      
+      
+          background-color: white;
+          box-shadow: rgba(149, 157, 165, 0.047) 0px 0px 40px;
+          padding: 10px 15px;
+          box-sizing: border-box;
+      
+          h1{
+            font-size: 5vw;
+          }
+      
+          span{
+            color:grey;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
+            position: absolute;
+            bottom:8px;
+            font-size: 4vw;
+      
+            i{
+              margin: 0 5px;
+              padding: 2.5px 3px;
+              border: 2px solid grey;
+      
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
           }
         }
-      }
-            
 }
+            
 
 footer{
     width: 100%;
@@ -312,14 +374,16 @@ footer{
     position: absolute;
     top:0;
     width: 100%;
+    overflow: hidden;
     min-height: 100vh;
 
 
     .add-package-page{
-        z-index: 9;
         transition: 0.3s;
         transform: translateX(100%);
-        position: relative;
+        position: absolute;
+        width: 100%;
+        z-index: 2;
     
         .header{
             height: 7vh;
@@ -334,7 +398,7 @@ footer{
             align-items: center;
           
 
-            z-index: 3;
+
 
             gap: 20px;
             padding-left: 10px;
@@ -385,7 +449,7 @@ footer{
                 display: flex;
                 flex-direction: column;
 
-                z-index: 5;
+
 
               
                 input{
@@ -431,6 +495,94 @@ footer{
     }
     .menuToggle{
         transform: translateX(0%);
+    }
+
+    .packageInfo{
+      transition: 0.3s;
+      transform: translateX(100%);
+      position: absolute;
+      width: 100%;
+      background-color: red;
+      z-index: 2;
+
+
+
+      .header{
+        height: 7vh;
+        width: 100%;
+      
+        background-color: rgb(255, 255, 255);
+        font-family: 'Kanit', sans-serif;
+        border-bottom: 1px solid rgba(207, 205, 205, 0.479);
+        color: #232323;
+      
+        display: flex;
+        align-items: center;
+      
+
+
+        gap: 20px;
+        padding-left: 10px;
+
+
+
+        button{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      
+          border:none;
+          background-color: transparent;
+          font-size: 23px;
+          cursor: pointer;
+          border-radius: 50%;
+          padding: 4px 6px;
+          color: #232323;
+      
+      
+          transition: 0.3s;
+      
+          i{
+            position: relative;
+            top: 1px;
+          }
+        }
+        button:focus{
+          background-color: rgba(128, 128, 128, 0.605);
+        }
+        h1{
+          font-size: 15px;
+        }
+      }
+      .main{
+        height: 93vh;
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        font-family: 'Kanit', sans-serif;
+        // gap: 15px;
+      
+        background-color: white;
+      
+      
+        display: flex;
+        flex-direction: column;
+
+        .infoTitle{
+          color:grey;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+        span{
+          font-size: 16px;
+          font-weight: 600;
+          margin-bottom: 15px;
+        }
+      }
+    }
+    .packageInfoToggle{
+      transform: translateX(0%);
     }
    
 }

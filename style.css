@@ -72,61 +72,6 @@ main {
 main .receiveContainer {
   font-family: "Kanit", sans-serif;
 }
-main .receiveContainer .packageBox {
-  width: 100%;
-  height: 160px;
-  margin: 10px 0;
-  padding: 10px 15px;
-  box-sizing: border-box;
-  position: relative;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background-color: white;
-  transition: 0.3s;
-  cursor: pointer;
-  font-family: "Kanit", sans-serif;
-}
-main .receiveContainer .packageBox .packageInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  letter-spacing: 1px;
-  font-weight: 600;
-  pointer-events: none;
-}
-main .receiveContainer .packageBox .packageInfo .trackingNumber span {
-  font-size: 13px;
-}
-main .receiveContainer .packageBox .packageInfo p {
-  font-size: 11px;
-  text-transform: uppercase;
-  color: Grey;
-}
-main .receiveContainer .packageBox .moreBtn {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  pointer-events: none;
-  font-weight: 500;
-  font-size: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-}
-main .receiveContainer .packageBox .moreBtn i {
-  color: rgb(255, 217, 25);
-  font-size: 15px;
-  pointer-events: none;
-}
-main .receiveContainer .packageBox .moreBtn p {
-  pointer-events: none;
-}
-main .receiveContainer .packageBox:active {
-  background-color: rgb(160, 160, 160);
-}
 main .receiveContainer .addReceiveBtn {
   width: 40px;
   height: 40px;
@@ -171,6 +116,109 @@ main .infoBox span {
   position: absolute;
   bottom: 8px;
   font-size: 3.5vw;
+}
+main .infoBox span i {
+  margin: 0 5px;
+  padding: 2.5px 3px;
+  border: 2px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .packageBox {
+  width: 100%;
+  height: 160px;
+  margin: 10px 0;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: white;
+  transition: 0.3s;
+  cursor: pointer;
+  font-family: "Kanit", sans-serif;
+}
+main .packageBox .packageInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  pointer-events: none;
+}
+main .packageBox .packageInfo .trackingNumber span {
+  font-size: 13px;
+}
+main .packageBox .packageInfo p {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: Grey;
+}
+main .packageBox .moreBtn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  pointer-events: none;
+  font-weight: 500;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+main .packageBox .moreBtn i {
+  color: rgb(255, 217, 25);
+  font-size: 15px;
+  pointer-events: none;
+}
+main .packageBox .moreBtn p {
+  pointer-events: none;
+}
+main .packageBox:active {
+  background-color: rgb(160, 160, 160);
+}
+main .addReceiveBtn {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 75px;
+  right: 25px;
+  background-color: rgb(255, 217, 25);
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+main .addReceiveBtn i {
+  font-size: 15px;
+}
+main .addReceiveBtn:focus {
+  background-color: rgb(199, 169, 20);
+}
+main .infoBox {
+  width: 70vw;
+  height: 130px;
+  position: absolute;
+  bottom: 70px;
+  left: 15px;
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.047) 0px 0px 40px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+}
+main .infoBox h1 {
+  font-size: 5vw;
+}
+main .infoBox span {
+  color: grey;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  bottom: 8px;
+  font-size: 4vw;
 }
 main .infoBox span i {
   margin: 0 5px;
@@ -233,13 +281,15 @@ footer div .slider {
   position: absolute;
   top: 0;
   width: 100%;
+  overflow: hidden;
   min-height: 100vh;
 }
 #windows .add-package-page {
-  z-index: 9;
   transition: 0.3s;
   transform: translateX(100%);
-  position: relative;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
 }
 #windows .add-package-page .header {
   height: 7vh;
@@ -250,7 +300,6 @@ footer div .slider {
   color: #232323;
   display: flex;
   align-items: center;
-  z-index: 3;
   gap: 20px;
   padding-left: 10px;
 }
@@ -287,7 +336,6 @@ footer div .slider {
   background-color: white;
   display: flex;
   flex-direction: column;
-  z-index: 5;
 }
 #windows .add-package-page .main input {
   height: 40px;
@@ -324,5 +372,72 @@ footer div .slider {
   cursor: default;
 }
 #windows .menuToggle {
+  transform: translateX(0%);
+}
+#windows .packageInfo {
+  transition: 0.3s;
+  transform: translateX(100%);
+  position: absolute;
+  width: 100%;
+  background-color: red;
+  z-index: 2;
+}
+#windows .packageInfo .header {
+  height: 7vh;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  font-family: "Kanit", sans-serif;
+  border-bottom: 1px solid rgba(207, 205, 205, 0.479);
+  color: #232323;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 10px;
+}
+#windows .packageInfo .header button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  font-size: 23px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 4px 6px;
+  color: #232323;
+  transition: 0.3s;
+}
+#windows .packageInfo .header button i {
+  position: relative;
+  top: 1px;
+}
+#windows .packageInfo .header button:focus {
+  background-color: rgba(128, 128, 128, 0.605);
+}
+#windows .packageInfo .header h1 {
+  font-size: 15px;
+}
+#windows .packageInfo .main {
+  height: 93vh;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+#windows .packageInfo .main .infoTitle {
+  color: grey;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+#windows .packageInfo .main span {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+#windows .packageInfoToggle {
   transform: translateX(0%);
 }/*# sourceMappingURL=style.css.map */
