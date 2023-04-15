@@ -9,6 +9,9 @@
     <script src="https://kit.fontawesome.com/4798a03daf.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php
+        $conn = new_mysqli("localhost","root","","inpostapp")
+    ?>
 
     <div id="windows">
         <div class="add-package-page">
@@ -105,7 +108,7 @@
               <i class="fa-solid fa-arrow-right"></i>
             <span>Nadaj</span>
             </button>
-          
+
             <button>
               <i class="fa-solid fa-arrow-left"></i>
             <span>Zwróć</span>
