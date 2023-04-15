@@ -10,7 +10,7 @@
 </head>
 <body>
     <?php
-        $conn = new_mysqli("localhost","root","","inpostapp")
+        $conn = new mysqli("localhost","root","","inpostapp");
     ?>
 
     <div id="windows">
@@ -89,6 +89,31 @@
             </button>
         </div>
 
+        <div class="packageBox" (click)="openBoxInfo($event)">
+            <div class="packageInfo">
+                <div class="trackingNumber">
+                  <p>nr przesyłki</p>
+                  <span>
+                    {{orderlist.tracking_number}}
+                  </span>
+                </div>
+
+                <div class="status">
+                  <p>status</p>
+                  <span>{{orderlist.status}}</span>
+                </div>
+
+                <div class="sender">
+                  <p>nadawca</p>
+                  <span>{{orderlist.sender}}</span>
+                </div>
+            </div>
+
+          <div class="moreBtn">
+            <p>więcej</p> <i class="fa-solid fa-arrow-right"></i>
+          </div>
+
+        </div>
 
         <div class="infoBox">
                 <h1>Nie śledzisz jeszcze żadnej przesyłki</h1>
@@ -123,6 +148,9 @@
           
     </footer>
       
+    <?php 
+        $conn -> close();
+    ?>
     <script src="./script.js"></script>
 </body>
 </html>
