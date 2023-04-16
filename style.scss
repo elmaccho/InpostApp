@@ -34,8 +34,24 @@ header{
           background-color: transparent;
           border: none;
           cursor: pointer;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
     
           font-size: 15px;
+
+          border-radius: 50%;
+          padding: 5px 6px;
+          color: #232323;
+          transition: 0.3s;
+
+          i{
+            pointer-events: none;
+          }
+        }
+        .menuBtn:active{
+          background-color: rgba(128, 128, 128, 0.605);
         }
     
         .mainTitle{
@@ -52,7 +68,7 @@ header{
     
     }
     
-        .switchBar{
+    .switchBar{
         display: flex;
         justify-content: space-around;
         box-sizing: border-box;
@@ -116,11 +132,11 @@ main{
           background-color: rgb(199, 169, 20);
         }
       
-      }
+    }
       
     .menuToggle{
         transform: translateX(0%);
-      }
+    }
 
     .infoBox{
         width: 70%;
@@ -162,9 +178,9 @@ main{
             align-items: center;
           }
         }
-      }      
+    }      
       
-        .packageBox{
+    .packageBox{
           width: 100%;
           height: 160px;
           margin: 10px 0;
@@ -232,13 +248,13 @@ main{
             }
           }
       
-        }
+    }
       
-        .packageBox:active{
+    .packageBox:active{
           background-color: rgb(160, 160, 160);
-        }
+    }
       
-        .addReceiveBtn{
+    .addReceiveBtn{
             width: 40px;
             height: 40px;
       
@@ -255,13 +271,13 @@ main{
             i{
               font-size: 15px;
             }
-        }
+    }
       
-        .addReceiveBtn:focus{
+    .addReceiveBtn:focus{
           background-color: rgb(199, 169, 20);
-        }
+    }
       
-        .infoBox{
+    .infoBox{
           width: 70vw;
           height: 130px;
       
@@ -299,7 +315,7 @@ main{
               align-items: center;
             }
           }
-        }
+    }
 }
             
 
@@ -308,7 +324,6 @@ footer{
 
     position: fixed;
     bottom:0;
-    // display: flex;
     flex-direction: row;
     justify-content: space-around;
   
@@ -364,11 +379,109 @@ footer{
         background-position:50%;
       }
       
-      }
+    }
       
 
 }
 
+.mainContainer{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: 0.3s;
+  position: relative;
+
+}
+.mainToggle{
+  transform: translate(50%, 3.5%) scale(80%);
+  cursor: pointer;
+}
+
+.sideMenu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%) translateX(-150%);
+  transition: 0.3s;
+
+  height: 100%;
+  width: 100%;
+  
+  .logo{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 55px;
+    top: 105px;
+
+    img{
+      width: 140px;
+    }
+  }
+
+  .menuBtns{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    height: 530px;
+
+
+    button{
+      width: 100%;
+      height: 50px;
+      border:none;
+      background-color: transparent;
+      cursor: pointer;
+
+      font-weight: 600;
+
+      text-align: left;
+
+      padding-left: 60px;
+      box-sizing: border-box;
+      transition: 0.3s;
+
+      i{
+        color:rgb(255, 217, 25);
+        margin-right: 10px;
+      }
+    }
+    button:hover{
+      background-color: rgb(195, 195, 195);
+    }
+    .logOutBtn{
+      position: absolute;
+      bottom:0;
+    }
+  }
+}
+.sideMenuToggle{
+  transform: translateX(0%) translateY(-50%);
+}
+
+.pointerEventsNone{
+  pointer-events: none;
+}
+.exit{
+  transform: translate(0%, 17%) scale(100%);
+  width: 40%;
+  height: 555px;
+  z-index: 9;
+  background-color: transparent;
+  border:none;
+
+  position: absolute;
+  top:0;
+  right:0;
+
+  display: none;
+}
+.exitToggle{
+  display: block;
+}
 
 #windows{
     position: absolute;
@@ -451,46 +564,55 @@ footer{
 
 
 
-              
-                input{
-                  height: 40px;
-                  border: 2px solid rgba(207, 205, 205, 0.479);
-                  font-weight: 600;
-                  text-indent: 10px;
-                  outline: none;
-                }
-              
-                input::placeholder{
-                  color: rgb(169, 169, 169);
-                }
-              
-                .counter-number, .counter-name{
-                  position: relative;
-                  top: -15px;
-                  left: 15px;
-                  font-size: 13px;
-                  color: rgb(169, 169, 169);
-                }
-              
-                h1{
-                  font-size: 16px;
-              
-                }
-              
-                button{
-                  border:none;
-                  height: 45px;
-                  font-weight: 600;
-                  color: #232323;
-                  cursor: pointer;
-                  background-color:rgb(255, 217, 25);
-                  font-weight: 600;
-                }
-                button:disabled{
-                  background-color: rgba(99, 99, 99, 0.141);
-                  color:rgba(128, 128, 128, 0.605);
-                  cursor:default;
-                }
+              form{
+                gap: 10px;
+                display: flex;
+                flex-direction: column;
+
+
+                  input{
+                    height: 40px;
+                    width: 100%;
+                    border: 2px solid rgba(207, 205, 205, 0.479);
+                    font-weight: 600;
+                    text-indent: 10px;
+                    outline: none;
+                  }
+                
+                  input::placeholder{
+                    color: rgb(169, 169, 169);
+                  }
+                
+                  .counter-number, .counter-name{
+                    position: relative;
+                    top: -11px;
+                    left: 15px;
+                    font-size: 13px;
+                    color: rgb(169, 169, 169);
+                  }
+                
+                  h1{
+                    font-size: 16px;
+                
+                  }
+                
+                  button{
+                    border:none;
+                    width: 100%;
+                    height: 45px;
+                    font-weight: 600;
+                    color: #232323;
+                    cursor: pointer;
+                    background-color:rgb(255, 217, 25);
+                    margin-top: 25px;
+                  }
+                  button:disabled{
+                    background-color: rgba(99, 99, 99, 0.141);
+                    color:rgba(128, 128, 128, 0.605);
+                    cursor:default;
+                  }
+              }
+
         }
     }
     .menuToggle{
@@ -502,7 +624,6 @@ footer{
       transform: translateX(100%);
       position: absolute;
       width: 100%;
-      background-color: red;
       z-index: 2;
 
 

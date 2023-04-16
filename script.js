@@ -1,3 +1,7 @@
+const receiveBtn = document.querySelector('.receiveBtn')
+const sendBtn = document.querySelector('.sendBtn')
+
+
 const addReceiveBtn = document.querySelector('.addReceiveBtn')
 const addPackagePage = document.querySelector('.add-package-page')
 const closeReceiveMenu = document.querySelector('.closeReceiveMenu')
@@ -16,6 +20,15 @@ const trackingNumberInfo = document.querySelector('.trackingNumberInfo')
 const statusInfo = document.querySelector('.statusInfo')
 const senderInfo = document.querySelector('.senderInfo')
 const nameInfo = document.querySelector('.nameInfo')
+
+const menuBtn = document.querySelector('.menuBtn')
+const mainContainer = document.querySelector('.mainContainer')
+const sideMenu = document.querySelector('.sideMenu')
+const mainBar = document.querySelector('.mainBar')
+const footBar = document.querySelector('.footBar')
+const switchBar = document.querySelector('.switchBar')
+
+const exit = document.querySelector('.exit')
 
 
 
@@ -77,6 +90,11 @@ const TogglecloseInfoPage = () => {
 }
 
 
+const menuToggle = () => {
+        mainContainer.classList.toggle('mainToggle')
+        sideMenu.classList.toggle('sideMenuToggle')
+        exit.classList.toggle('exitToggle')
+}
 
 addReceiveBtn.addEventListener('click', toggleAddMenu)
 closeReceiveMenu.addEventListener('click', toggleAddMenu)
@@ -88,3 +106,11 @@ packageNumber.addEventListener('input', packageNumberCounter)
 packageNumber.addEventListener('focus', packageNumberFocus)
 packageNumber.addEventListener('focusout', packageNumberFocusOut)
 packageName.addEventListener('input', packageNameCounter)
+
+menuBtn.addEventListener('click', menuToggle)
+
+exit.addEventListener('click', () => {
+    mainContainer.classList.toggle('mainToggle')
+    sideMenu.classList.toggle('sideMenuToggle')
+    exit.classList.toggle('exitToggle')
+})
