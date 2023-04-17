@@ -13,36 +13,62 @@
     <div id="windows">
 
       <div class="packageInfo">
-        <div class="header">
-          <button class="closeInfoPage"><i class="fa-solid fa-arrow-left"></i></button> <h1>Informacje o przesyłce</h1>
-        </div>
-        <div class="main">
+          <div class="header">
+            <button class="closeInfoPage"><i class="fa-solid fa-arrow-left"></i></button> <h1>Informacje o przesyłce</h1>
+          </div>
 
-          <p class="infoTitle">
-            nr przesyłki
-          </p>
-          <span class="trackingNumberInfo">
-          </span>
+          <div class="main">
 
-          <p class="infoTitle">
-            status
-          </p>
-          <span class="statusInfo">
-          </span>
+            <div class="infoBox">
+              <p class="infoTitle">
+                  nr przesyłki
+                </p>
+                <span class="trackingNumberInfo">
+                </span>
 
-          <p class="infoTitle">
-            nadawca
-          </p>
-          <span class="senderInfo">
-          </span>
+                <p class="infoTitle">
+                  status
+                </p>
+                <span class="statusInfo">
+                </span>
 
-          <p class="infoTitle">
-            nazwa przesyłki
-          </p>
-          <span class="nameInfo">
-          </span>
+                <p class="infoTitle">
+                  nadawca
+                </p>
+                <span class="senderInfo">
+                </span>
 
-        </div>
+                <p class="infoTitle">
+                  nazwa przesyłki
+                </p>
+              <span class="nameInfo">
+                <?php 
+                  $conn = mysqli_connect("localhost","root","","inpostapp");
+
+
+                ?>
+              </span>
+            </div>
+
+            <hr>
+
+            <button class="shareBtn">Udostępnij przesyłkę</button>
+
+            <div class="location">
+              <div class="receiveLocation">
+                  <p class="infoTitle">Miejsce odbioru</p>
+
+
+              </div>
+              <div class="locationAvailability">
+                  <p class="infoTitle">dostępny</p>
+                  <span>Całą dobę,<br>
+                    7 dni w tygodniu
+                  </span>
+              </div>
+            </div>
+
+          </div>
       </div>  
 
       <div class="add-package-page">
@@ -140,68 +166,70 @@
       </header>
 
       <main>
-          <div class="receiveContainer">
-              <button class="addReceiveBtn">
-                  <i class="fa-solid fa-plus"></i>
-              </button>
-          </div>
-
-      <?php
-          $conn = mysqli_connect("localhost","root","","inpostapp");
-
-          $sql = "SELECT * FROM zamowienie";
-          $query = mysqli_query($conn, $sql);
-
-
-          while($row = $query->fetch_assoc()){
-            
-            if ($row) {
-              $trackingNumber = $row["nrPrzesylki"];
-              $status = $row["status"];
-              $sender = $row["nadawca"];
-
-              echo "
-              <div class=\"packageBox\">
-              <div class=\"packageInfo\">
-                  <div class=\"trackingNumber\">
-                    <p>nr przesyłki</p>
-                    <span class=\"trackingNumberBox\">
-                      $trackingNumber
-                    </span>
-                  </div>
-
-                  <div class=\"status\">
-                    <p>status</p>
-                    <span class=\"statusBox\">$status</span>
-                  </div>
-
-                  <div class=\"sender\">
-                    <p>nadawca</p>
-                    <span class=\"senderBox\">$sender</span>
-                  </div>
+              <div class="receiveContainer">
+                  <button class="addReceiveBtn">
+                      <i class="fa-solid fa-plus"></i>
+                  </button>
               </div>
 
-            <div class=\"moreBtn\">
-              <p>więcej</p> <i class=\"fa-solid fa-arrow-right\"></i>
-            </div>
+          <?php
+              $conn = mysqli_connect("localhost","root","","inpostapp");
 
-          </div>
-              ";
-            } else {
-              echo "
-              <div class=\"infoBox\">
-              <h1>Nie śledzisz jeszcze żadnej przesyłki</h1>
-        
-              <span>Kliknij <i class=\"fa-solid fa-plus\"></i> by dodać przesyłkę</span>
-      </div>";
-            }
+              $sql = "SELECT * FROM zamowienie";
+              $query = mysqli_query($conn, $sql);
 
 
-          }
 
+                
+                if (mysqli_num_rows($query)>0) {
+                  while($row = $query->fetch_assoc()){
+
+                  $trackingNumber = $row["nrPrzesylki"];
+                  $status = $row["status"];
+                  $sender = $row["nadawca"];
+
+                  echo "
+                  <div class=\"packageBox\">
+                  <div class=\"packageInfo\">
+                      <div class=\"trackingNumber\">
+                        <p>nr przesyłki</p>
+                        <span class=\"trackingNumberBox\">
+                          $trackingNumber
+                        </span>
+                      </div>
+
+                      <div class=\"status\">
+                        <p>status</p>
+                        <span class=\"statusBox\">$status</span>
+                      </div>
+
+                      <div class=\"sender\">
+                        <p>nadawca</p>
+                        <span class=\"senderBox\">$sender</span>
+                      </div>
+                  </div>
+
+                <div class=\"moreBtn\">
+                  <p>więcej</p> <i class=\"fa-solid fa-arrow-right\"></i>
+                </div>
+
+              </div>
+                  ";
+                } 
+
+
+              } else {
+                echo "
+                <div class=\"infoBox\">
+                <h1>Nie śledzisz jeszcze żadnej przesyłki</h1>
           
-          mysqli_close($conn);
-      ?>
+                <span>Kliknij <i class=\"fa-solid fa-plus\"></i> by dodać przesyłkę</span>
+            </div>";
+              }
+
+              
+              mysqli_close($conn);
+          ?>
       </main>
 
       <footer>
