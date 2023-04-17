@@ -15,6 +15,8 @@
       <div class="packageInfo">
           <div class="header">
             <button class="closeInfoPage"><i class="fa-solid fa-arrow-left"></i></button> <h1>Informacje o przesyłce</h1>
+
+            <button class="more"><i class="fa-solid fa-ellipsis-vertical"></i></button>
           </div>
 
           <div class="main">
@@ -68,6 +70,23 @@
               </div>
             </div>
 
+          </div>
+
+          <div class="moreMenu">
+            <button class="deleteBtn"><i class="fa-regular fa-trash-can"></i>Usuń</button>
+            <button class="hotlineBtn"><i class="fa-solid fa-circle-info"></i>Infolinia</button>
+            <?php
+              $conn = mysqli_connect("localhost","root","","inpostapp");
+               $sql = "SELECT status FROM `zamowienie` WHERE zamowienie.status = 'Odebrano' ";
+                $query = mysqli_query($conn, $sql);
+                
+                if(mysqli_num_rows($query)!=0){
+                  echo "<button class=\"archiveBtn\"><i class=\"fa-solid fa-box-archive\"></i>Archiwizuj</button>";
+                } else {
+                  echo "";
+                };
+
+            ?>
           </div>
       </div>  
 
@@ -248,12 +267,6 @@
                 <i class="fa-solid fa-arrow-left"></i>
               <span>Zwróć</span>
               </button>
-            
-              <button>
-                <i class="fa-regular fa-bell"></i>
-                <span>Sprawdź</span>
-              </button>
-            
             </div>
             
       </footer>

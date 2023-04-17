@@ -30,6 +30,9 @@ const switchBar = document.querySelector('.switchBar')
 
 const exit = document.querySelector('.exit')
 
+const more = document.querySelector('.more')
+const moreMenu = document.querySelector('.moreMenu')
+
 
 
 
@@ -96,6 +99,10 @@ const menuToggle = () => {
         exit.classList.toggle('exitToggle')
 }
 
+const infoMenuToggle = () => {
+    moreMenu.classList.toggle('moreMenuToggle')
+}
+
 addReceiveBtn.addEventListener('click', toggleAddMenu)
 closeReceiveMenu.addEventListener('click', toggleAddMenu)
 
@@ -113,4 +120,12 @@ exit.addEventListener('click', () => {
     mainContainer.classList.toggle('mainToggle')
     sideMenu.classList.toggle('sideMenuToggle')
     exit.classList.toggle('exitToggle')
+})
+
+more.addEventListener('click', infoMenuToggle)
+document.addEventListener('click', (e) => {
+    if(!moreMenu.contains(e.target) && !more.contains(e.target)){
+        moreMenu.classList.remove('moreMenuToggle')
+
+    }
 })

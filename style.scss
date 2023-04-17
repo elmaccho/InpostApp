@@ -674,6 +674,15 @@ footer{
         h1{
           font-size: 15px;
         }
+
+      .more{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 10px;
+      }
+
+
       }
       .main{
         height: 93vh;
@@ -690,7 +699,7 @@ footer{
         align-items: center;
 
         .infoBox{
-          padding-bottom: 25px;
+          padding-bottom: 5px;
           width: 90%;
           .infoTitle{
             color:grey;
@@ -705,13 +714,14 @@ footer{
         }
 
         hr{
+          width: 90%;
           color: grey;
           outline: none;
           border:1px solid rgba(201, 201, 201, 0.466);
         }
 
         .shareBtn{
-          margin-top: 15px;
+          margin-top: 5px;
 
           height: 40px;
           width: 90%;
@@ -755,6 +765,47 @@ footer{
             }
           }
         }
+      }
+      .moreMenu{
+        position: absolute;
+        transform: scale(0);
+        top:30px;
+        right:30px;
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s;
+        transform-origin: top right;
+
+        width: 150px;
+        min-height: 80px;
+        max-height: 120px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+        button{
+          height: 40px;
+          border:none;
+          background-color: transparent;
+
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          cursor: pointer;
+          transition: 0.3s;
+          box-sizing: border-box;
+          padding: 0 10px;
+
+          i{
+            margin-right: 15px;
+          }
+        }
+        button:hover{
+          background-color: rgba(205, 205, 205, 0.498);
+        }
+      }
+      .moreMenuToggle{
+        transform: scale(1);
       }
     }
     .packageInfoToggle{

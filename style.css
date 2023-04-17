@@ -525,6 +525,12 @@ footer div .slider {
 #windows .packageInfo .header h1 {
   font-size: 15px;
 }
+#windows .packageInfo .header .more {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 10px;
+}
 #windows .packageInfo .main {
   height: 93vh;
   width: 100%;
@@ -538,7 +544,7 @@ footer div .slider {
   align-items: center;
 }
 #windows .packageInfo .main .infoBox {
-  padding-bottom: 25px;
+  padding-bottom: 5px;
   width: 90%;
 }
 #windows .packageInfo .main .infoBox .infoTitle {
@@ -552,12 +558,13 @@ footer div .slider {
   font-weight: 600;
 }
 #windows .packageInfo .main hr {
+  width: 90%;
   color: grey;
   outline: none;
   border: 1px solid rgba(201, 201, 201, 0.466);
 }
 #windows .packageInfo .main .shareBtn {
-  margin-top: 15px;
+  margin-top: 5px;
   height: 40px;
   width: 90%;
   border: 3px solid rgb(255, 217, 25);
@@ -595,6 +602,42 @@ footer div .slider {
   color: grey;
   font-size: 12px;
   letter-spacing: 0.5px;
+}
+#windows .packageInfo .moreMenu {
+  position: absolute;
+  transform: scale(0);
+  top: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+  transform-origin: top right;
+  width: 150px;
+  min-height: 80px;
+  max-height: 120px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#windows .packageInfo .moreMenu button {
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+#windows .packageInfo .moreMenu button i {
+  margin-right: 15px;
+}
+#windows .packageInfo .moreMenu button:hover {
+  background-color: rgba(205, 205, 205, 0.498);
+}
+#windows .packageInfo .moreMenuToggle {
+  transform: scale(1);
 }
 #windows .packageInfoToggle {
   transform: translateX(0%);
